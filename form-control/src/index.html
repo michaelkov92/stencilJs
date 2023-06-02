@@ -3,12 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Ex1 Form control</title>
+    <title>stencil js course exercises</title>
     <script type="module" src="/build/form-control.esm.js"></script>
     <script nomodule src="/build/form-control.js"></script>
   </head>
   <body>
-    <my-input input-type="text" placeholder="generic input placeholder..." label="Generic-input" readonly="false" disabled="false"></my-input>
-    <my-textarea label="Generic-textarea" rows="5" cols="1" disabled="false" placeholder="generic textarea placeholder..."></my-textarea>
+    <!-- Exercise 1 -->
+    <!-- <my-input input-type="text" placeholder="generic input placeholder..." label="Generic-input" readonly="false" disabled="false"></my-input>
+    <my-textarea label="Generic-textarea" rows="5" cols="1" disabled="false" placeholder="generic textarea placeholder..."></my-textarea> -->
+
+    <!-- Exercise 2 -->
+    <slot>
+      <wc-select-view></wc-select-view>
+    </slot>
   </body>
 </html>

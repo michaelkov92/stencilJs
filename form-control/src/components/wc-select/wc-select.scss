@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  margin: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.wc-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .wc-select-selected-value-container {
+    background-color: beige;
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 10px;
+    width: 400px;
+    cursor: pointer;
+  }
+  .ddl-options {
+    margin-top: 5px;
+    background-color: beige;
+    border: 1px solid black;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 10px;
+    width: 400px;
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    .ddl-option-item:hover {
+      background-color: aquamarine;
+    }
+  }
+
+  label {
+    font-weight: 600;
+  }
+}

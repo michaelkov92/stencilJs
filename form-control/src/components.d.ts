@@ -22,6 +22,13 @@ export namespace Components {
         "placeholder": string;
         "rows": number;
     }
+    interface WcSelect {
+        "initialValue": string;
+        "label": string;
+        "options": Array<string>;
+    }
+    interface WcSelectView {
+    }
 }
 declare global {
     interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
@@ -36,9 +43,23 @@ declare global {
         prototype: HTMLMyTextareaElement;
         new (): HTMLMyTextareaElement;
     };
+    interface HTMLWcSelectElement extends Components.WcSelect, HTMLStencilElement {
+    }
+    var HTMLWcSelectElement: {
+        prototype: HTMLWcSelectElement;
+        new (): HTMLWcSelectElement;
+    };
+    interface HTMLWcSelectViewElement extends Components.WcSelectView, HTMLStencilElement {
+    }
+    var HTMLWcSelectViewElement: {
+        prototype: HTMLWcSelectViewElement;
+        new (): HTMLWcSelectViewElement;
+    };
     interface HTMLElementTagNameMap {
         "my-input": HTMLMyInputElement;
         "my-textarea": HTMLMyTextareaElement;
+        "wc-select": HTMLWcSelectElement;
+        "wc-select-view": HTMLWcSelectViewElement;
     }
 }
 declare namespace LocalJSX {
@@ -56,9 +77,18 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         "rows"?: number;
     }
+    interface WcSelect {
+        "initialValue"?: string;
+        "label"?: string;
+        "options"?: Array<string>;
+    }
+    interface WcSelectView {
+    }
     interface IntrinsicElements {
         "my-input": MyInput;
         "my-textarea": MyTextarea;
+        "wc-select": WcSelect;
+        "wc-select-view": WcSelectView;
     }
 }
 export { LocalJSX as JSX };
@@ -67,6 +97,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
             "my-textarea": LocalJSX.MyTextarea & JSXBase.HTMLAttributes<HTMLMyTextareaElement>;
+            "wc-select": LocalJSX.WcSelect & JSXBase.HTMLAttributes<HTMLWcSelectElement>;
+            "wc-select-view": LocalJSX.WcSelectView & JSXBase.HTMLAttributes<HTMLWcSelectViewElement>;
         }
     }
 }
