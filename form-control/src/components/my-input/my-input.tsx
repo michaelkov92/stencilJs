@@ -3,7 +3,7 @@ import { InputType } from './my-input.types';
 
 @Component({
   tag: 'my-input',
-  styleUrl: 'my-input.css',
+  styleUrl: 'my-input.scss',
   shadow: true,
 })
 export class MyInput {

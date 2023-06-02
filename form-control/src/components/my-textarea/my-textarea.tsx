@@ -2,7 +2,7 @@ import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'my-textarea',
-  styleUrl: 'my-textarea.css',
+  styleUrl: 'my-textarea.scss',
   shadow: true,
 })
 export class MyTextarea {
