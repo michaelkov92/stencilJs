@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State } from '@stencil/core';
+import { Component, Host, Event, EventEmitter, h, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'wc-select',
@@ -11,10 +11,16 @@ export class WcSelect {
   @Prop() initialValue: string = '';
   @State() selectedValue: string = this.initialValue;
   @State() ddlOpen: boolean = false;
+  @Event({
+    eventName: 'optionsChange',
+    bubbles: true,
+  })
+  optionsChange: EventEmitter<string>;
 
   onItemSelection(selection: string) {
     this.selectedValue = selection;
     this.ddlOpen = false;
+    this.optionsChange.emit(selection);
   }
   render() {
     return (
