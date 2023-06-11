@@ -6,23 +6,14 @@ import { Component, Host, Listen, h } from '@stencil/core';
   shadow: true,
 })
 export class MyContainer {
-  @Listen('checkboxChange')
-  checkboxChangeHandler(checkboxEvent: CustomEvent<boolean>) {
-    console.log('checkbox state update:', checkboxEvent.detail);
-  }
-  public onOptionsChange(ev): void {
-    console.log('selection change update: ', ev.detail);
-  }
   render() {
     return (
       <Host>
-        <wc-checkbox label="Click on me"></wc-checkbox>
-        <wc-select
-          options={['android', 'ios', 'macOs', 'windows', 'linux']}
-          label="select your os"
-          initialValue="windows"
-          onOptionsChange={ev => this.onOptionsChange(ev)}
-        ></wc-select>
+        <h3>My form</h3>
+        <wc-form>
+          <wc-checkbox label="Employed"></wc-checkbox>
+          <wc-select options={['android', 'ios', 'macOs', 'windows', 'linux']} label="select your os" initialValue="windows"></wc-select>
+        </wc-form>
       </Host>
     );
   }

@@ -1,1 +1,1 @@
-export type InputType = 'text' | 'search' | 'url' | 'tel' | 'email' | 'password';
+export type InputType = 'text' | 'search' | 'url' | 'number' | 'email' | 'password';

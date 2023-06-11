@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.form-wrapper {
+  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form {
+  text-align: left;
+  button {
+    margin-top: 20px;
+  }
+}

@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { InputType } from "./components/my-input/my-input.types";
+import { IFormData } from "./components/wc-form/wc-form.interface";
 export { InputType } from "./components/my-input/my-input.types";
+export { IFormData } from "./components/wc-form/wc-form.interface";
 export namespace Components {
     interface MyContainer {
     }
@@ -28,6 +30,9 @@ export namespace Components {
         "checked": boolean;
         "label": string;
     }
+    interface WcForm {
+        "form": IFormData;
+    }
     interface WcSelect {
         "initialValue": string;
         "label": string;
@@ -35,6 +40,10 @@ export namespace Components {
     }
     interface WcSelectView {
     }
+}
+export interface MyInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMyInputElement;
 }
 export interface WcCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -69,6 +78,12 @@ declare global {
         prototype: HTMLWcCheckboxElement;
         new (): HTMLWcCheckboxElement;
     };
+    interface HTMLWcFormElement extends Components.WcForm, HTMLStencilElement {
+    }
+    var HTMLWcFormElement: {
+        prototype: HTMLWcFormElement;
+        new (): HTMLWcFormElement;
+    };
     interface HTMLWcSelectElement extends Components.WcSelect, HTMLStencilElement {
     }
     var HTMLWcSelectElement: {
@@ -86,6 +101,7 @@ declare global {
         "my-input": HTMLMyInputElement;
         "my-textarea": HTMLMyTextareaElement;
         "wc-checkbox": HTMLWcCheckboxElement;
+        "wc-form": HTMLWcFormElement;
         "wc-select": HTMLWcSelectElement;
         "wc-select-view": HTMLWcSelectViewElement;
     }
@@ -97,6 +113,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "inputType"?: InputType;
         "label"?: string;
+        "onInputChange"?: (event: MyInputCustomEvent<{ [label: string]: any }>) => void;
         "placeholder"?: string;
         "readonly"?: boolean;
     }
@@ -112,6 +129,9 @@ declare namespace LocalJSX {
         "label"?: string;
         "onCheckboxChange"?: (event: WcCheckboxCustomEvent<boolean>) => void;
     }
+    interface WcForm {
+        "form"?: IFormData;
+    }
     interface WcSelect {
         "initialValue"?: string;
         "label"?: string;
@@ -125,6 +145,7 @@ declare namespace LocalJSX {
         "my-input": MyInput;
         "my-textarea": MyTextarea;
         "wc-checkbox": WcCheckbox;
+        "wc-form": WcForm;
         "wc-select": WcSelect;
         "wc-select-view": WcSelectView;
     }
@@ -137,6 +158,7 @@ declare module "@stencil/core" {
             "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
             "my-textarea": LocalJSX.MyTextarea & JSXBase.HTMLAttributes<HTMLMyTextareaElement>;
             "wc-checkbox": LocalJSX.WcCheckbox & JSXBase.HTMLAttributes<HTMLWcCheckboxElement>;
+            "wc-form": LocalJSX.WcForm & JSXBase.HTMLAttributes<HTMLWcFormElement>;
             "wc-select": LocalJSX.WcSelect & JSXBase.HTMLAttributes<HTMLWcSelectElement>;
             "wc-select-view": LocalJSX.WcSelectView & JSXBase.HTMLAttributes<HTMLWcSelectViewElement>;
         }
